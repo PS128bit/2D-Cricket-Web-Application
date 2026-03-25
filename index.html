@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2D Cricket Web App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="student-intro">
+      <strong>Name:</strong> Muhammad Anas<br>
+      <strong>Roll Number:</strong> 23i-0853<br>
+      <strong>Section:</strong> B
+    </div>
+    <div id="game-container">
+        <h2>2D Cricket Championship</h2>
+        
+        <div id="scoreboard">
+            <div class="stat">Runs: <span id="total-runs">0</span></div>
+            <div class="stat">Wickets: <span id="wickets">0</span>/2</div>
+            <div class="stat">Overs: <span id="overs">0.0</span>/2.0</div>
+        </div>
+
+        <canvas id="gameCanvas" width="800" height="300"></canvas>
+
+        <div id="controls">
+            <div class="style-selector">
+                <label>Style:</label>
+                <button id="btn-def" onclick="setStyle('defensive')">Defensive</button>
+                <button id="btn-agg" class="active" onclick="setStyle('aggressive')">Aggressive</button>
+            </div>
+            <button id="play-btn" onclick="handleInput()">Start Bowl</button>
+            <button id="reset-btn" onclick="resetGame()">Restart Game</button>
+        </div>
+
+        <div class="power-bar-wrapper">
+            <div id="power-bar"></div>
+            <div id="slider"></div>
+        </div>
+        
+        <div id="commentary">Select your style and click 'Start Bowl'!</div>
+    </div>
+    <div id="game-over-screen" class="hidden">
+    <div class="modal-content">
+        <h1>Innings Over!</h1>
+        <div class="final-stats">
+            <p>Total Score: <span id="final-runs">0</span>/<span id="final-wickets">0</span></p>
+            <p>Overs Played: <span id="final-overs">0.0</span></p>
+        </div>
+        <button id="modal-restart" onclick="resetGame()">Play Again</button>
+    </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
