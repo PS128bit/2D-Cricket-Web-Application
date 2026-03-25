@@ -41,3 +41,34 @@ body {
     border-radius: 2px;
 }
 
+
+/* Game Container */
+#game-container {
+    width: 800px;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.6); 
+    padding: 20px;
+    border-radius: 15px;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Scoreboard Styling */
+#scoreboard {
+    display: flex;
+    justify-content: space-around;
+    background: #222;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    border: 2px solid #444;
+}
+
+.stat {
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+
