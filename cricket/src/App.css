@@ -1,0 +1,226 @@
+
+/* Animated Background */
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* Gradient transition */
+    background: linear-gradient(-45deg, #1ee72f, #2c3e50, #ffb412, #0c2461);
+    background-size: 400% 400%;
+    animation: gradientBG 10s ease infinite;
+}
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+
+/* Student Intro Sticky Note */
+#student-intro {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 300px;
+    height: auto;
+    padding: 15px;
+    background-color: #ffef96;
+    color: #333;
+    border: 1px solid #e6db55;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.4);
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 18px;
+    font-weight: bold;
+    transform: rotate(2deg);
+    z-index: 9999;
+    border-radius: 2px;
+}
+
+
+/* Game Container */
+#game-container {
+    width: 800px;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.6); 
+    padding: 20px;
+    border-radius: 15px;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Scoreboard Styling */
+#scoreboard {
+    display: flex;
+    justify-content: space-around;
+    background: #222;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    border: 2px solid #444;
+}
+
+.stat {
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Canvas Area */
+canvas {
+    background: #27ae60; 
+    border-bottom: 15px solid #d4a373; /* Pitch/Dirt look */
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    display: block;
+    margin: 0 auto;
+}
+
+/* Control Buttons */
+#controls {
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    align-items: center;
+}
+
+button {
+    padding: 12px 24px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: all 0.2s ease-in-out;
+    text-transform: uppercase;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+#play-btn {
+    background: #f1c40f;
+    color: #000;
+}
+
+#play-btn:hover {
+    background: #d4ac0d;
+}
+
+.active {
+    background: #e67e22 !important;
+    color: white;
+    border: 2px solid #fff;
+}
+
+/* Power Bar & Slider */
+.power-bar-wrapper {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    background: #333;
+    border: 3px solid #fff;
+    border-radius: 10px;
+    margin-top: 15px;
+    overflow: hidden;
+    display: flex;
+}
+
+#power-bar {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.segment {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 800;
+    color: rgba(255, 255, 255, 0.9);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+#slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 8px;
+    height: 100%;
+    background: #ffffff;
+    box-shadow: 0 0 15px #fff;
+    z-index: 10;
+    border-radius: 2px;
+}
+
+/* Game Over Overlay Styles */
+#game-over-screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    border-radius: 15px;
+    backdrop-filter: blur(8px);
+}
+
+.hidden {
+    display: none !important;
+}
+
+.modal-content {
+    background: #2c3e50;
+    padding: 40px;
+    border-radius: 20px;
+    border: 3px solid #f1c40f;
+    box-shadow: 0 0 30px rgba(241, 196, 15, 0.4);
+}
+
+.modal-content h1 {
+    color: #f1c40f;
+    margin-top: 0;
+    font-size: 2.5rem;
+}
+
+.final-stats p {
+    font-size: 1.5rem;
+    margin: 10px 0;
+}
+
+#modal-restart {
+    margin-top: 20px;
+    background: #27ae60;
+    color: white;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+}
+
+#modal-restart:hover {
+    background: #2ecc71;
+}
+
+/* Bonus Commentary Section */
+#commentary {
+    margin-top: 20px;
+    font-style: italic;
+    color: #ecf0f1;
+    font-size: 1.8rem;
+    height: 24px;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+}
+
