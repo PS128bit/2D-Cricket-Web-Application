@@ -214,4 +214,13 @@ button:hover {
     background: #2ecc71;
 }
 
+/* Bonus Commentary Section */
+#commentary {
+    margin-top: 20px;
+    font-style: italic;
+    color: #ecf0f1;
+    font-size: 1.8rem;
+    height: 24px;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+}
 

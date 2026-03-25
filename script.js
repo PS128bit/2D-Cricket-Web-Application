@@ -17,10 +17,10 @@ const configs = {
     aggressive: [
         { label: 'Wicket', prob: 0.40, color: '#e74c3c' },
         { label: '0', prob: 0.10, color: '#95a5a6' },
-        { label: '1', prob: 0.05, color: '#2ecc71' },
-        { label: '2', prob: 0.05, color: '#f1c40f' },
-        { label: '4', prob: 0.20, color: '#e67e22' },
-        { label: '6', prob: 0.20, color: '#9b59b6' }
+        { label: '1', prob: 0.075, color: '#2ecc71' },
+        { label: '2', prob: 0.125, color: '#f1c40f' },
+        { label: '4', prob: 0.175, color: '#e67e22' },
+        { label: '6', prob: 0.125, color: '#9b59b6' }
     ],
     defensive: [
         { label: 'Wicket', prob: 0.15, color: '#e74c3c' },
@@ -236,3 +236,47 @@ function drawFeedback() {
         feedbackTimer--;
     }
 }
+
+// Main Game Loop -Handles all real-time updates and drawing on the canvas
+ 
+function gameLoop() {
+    // Moves the slider back and forth across the 0-100% range
+    sliderPos += 2.0 * sliderDir;
+    if (sliderPos >= 100 || sliderPos <= 0) {
+        sliderDir *= -1;
+    }
+    // Update the visual slider element in the DOM
+    document.getElementById('slider').style.left = sliderPos + "%";
+
+    // Refresh the canvas for the new frame
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    
+    // Static Pitch
+    ctx.fillStyle = "#f3e5ab"; // Sand/Pitch color
+    ctx.fillRect(100, 100, 600, 100);
+
+    // Batsman (Handles swing animation internally)
+    drawBatsman();
+
+    // Bowling Animation
+    if (gameState === "BOWLING") {
+        ballX -= 9; // Ball moves toward the batsman
+        
+        // If ball passes the batsman without a hit, it's a Dot Ball
+        if (ballX < 110) {
+            processResult("0");
+        }
+    }
+
+    // Draw the Cricket Ball
+    ctx.fillStyle = "white";
+    ctx.beginPath();
+    ctx.arc(ballX, ballY, 8, 0, Math.PI * 2);
+    ctx.fill();
+
+    drawFeedback();
+    requestAnimationFrame(gameLoop);
+}
+
+renderPowerBar();
+gameLoop();
